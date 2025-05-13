@@ -27,7 +27,7 @@ export default function HeroSection() {
         >
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Hi, I'm <span className="text-slate-500">Your Name</span>
+              Hi, I'm <span className="text-slate-500">Edward Mensah</span>
             </h1>
             <p className="mt-4 text-xl md:text-2xl text-slate-600 dark:text-slate-400">
               Aspiring Software Engineer | Passionate about AI & Machine Learning
@@ -60,16 +60,16 @@ export default function HeroSection() {
         >
           <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-slate-200 dark:border-slate-700 shadow-xl">
             <Image
-              src="/profile-placeholder.png"
+              src="/computer-science-student-portrait.jpg"
               alt="Your Professional Portrait - Replace with your photo"
-              fill
-              className="object-cover"
+              width={500}
+              height={500}
+              className="object-cover w-full h-full"
               priority
+              onError={(e) => {
+                console.error('Error loading image:', e);
+              }}
             />
-          </div>
-          <div className="absolute -bottom-6 -right-6 bg-slate-100 dark:bg-slate-800 p-4 rounded-full shadow-lg">
-            <div className="text-3xl font-bold">3+</div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">Years Coding</div>
           </div>
         </motion.div>
       </div>

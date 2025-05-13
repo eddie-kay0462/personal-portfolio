@@ -42,8 +42,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link href="/" className="text-xl font-bold">
-              <span className="text-slate-900 dark:text-white">Your</span>
-              <span className="text-slate-500">Name</span>
+              <span className="text-slate-900 dark:text-white">Edward</span>
+              <span className="text-slate-500">Mensah</span>
             </Link>
           </div>
 
