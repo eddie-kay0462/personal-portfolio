@@ -13,16 +13,16 @@ import Image from "next/image"
 const projectsData = [
   {
     id: 1,
-    title: "AI Image Recognition",
+    title: "CSOFT- Career Services on Your Fingertips",
     description:
-      "A machine learning project that uses convolutional neural networks to classify images with high accuracy.",
-    image: "/placeholder.svg?key=fsm1e",
-    tags: ["Python", "TensorFlow", "Computer Vision", "AI"],
-    category: "AI",
-    github: "https://github.com/yourusername/project1",
+      "An all-in-one platform that integrates career development, internship request handling, and attendance tracking for college career services",
+    image: "/CSOFT.png",
+    tags: ["Next.js", "Tailwind CSS", "Supabase", "Lucide-React"],
+    category: "Web Development",
+    github: "https://github.com/eddie-kay0462/CSOFT",
     demo: "https://demo-link.com/project1",
-    role: "Lead Developer",
-    challenges: "Implementing efficient data preprocessing and optimizing model performance.",
+    role: "Full Stack Developer",
+    challenges: "Managing the complexity of the project and ensuring it is user-friendly and efficient.",
   },
   {
     id: 2,
