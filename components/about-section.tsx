@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Download, Brain, Users, Clock } from "lucide-react"
+import { Download, Brain, Users, Clock, View } from "lucide-react"
 
 export default function AboutSection() {
   return (
@@ -30,7 +30,7 @@ export default function AboutSection() {
           <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">My Journey</h3>
           <div className="space-y-4 text-slate-600 dark:text-slate-400">
             <p>
-              I'm a passionate Computer Science student currently pursuing my degree at [Your University]. My academic
+              I'm a passionate Computer Science student currently pursuing my degree at Ashesi University. My academic
               journey has been focused on developing a strong foundation in software engineering principles, algorithms,
               and artificial intelligence.
             </p>
@@ -40,13 +40,20 @@ export default function AboutSection() {
               that can extract meaningful insights.
             </p>
             <p>
-              When I'm not coding, you can find me participating in hackathons, contributing to open-source projects, or
+              When I'm not coding, you can find me participating in hackathons, contributing to open-source projects, grinding leetcode or
               exploring the latest developments in technology through online courses and technical blogs.
             </p>
           </div>
           <div>
-            <Button className="mt-4" variant="outline">
-              <Download className="mr-2 h-4 w-4" /> Download Resume
+            <Button className="mt-4" variant="outline" asChild>
+              <a
+                href="https://drive.google.com/file/d/1CHq0XHwTlAW1b0VDTy3HvtLPRIl_uQ0R/view?usp=sharing"
+                download="Edward_Mensah_Resume.pdf"
+                className="flex items-center"
+                target="_blank"
+              >
+                <View className="mr-2 h-4 w-4" /> View Resume
+              </a>
             </Button>
           </div>
         </motion.div>
@@ -95,8 +102,7 @@ export default function AboutSection() {
             <h4 className="text-lg font-medium mb-2 text-slate-900 dark:text-white">Career Aspirations</h4>
             <p className="text-slate-600 dark:text-slate-400">
               My goal is to become a skilled software engineer specializing in AI applications, contributing to
-              innovative projects that make a positive impact on society. I'm particularly interested in [specific area
-              of interest] and hope to work with forward-thinking companies that value innovation and continuous
+              innovative projects that make a positive impact on society. I'm particularly interested in machine learning and hope to work with forward-thinking companies that value innovation and continuous
               learning.
             </p>
           </div>
