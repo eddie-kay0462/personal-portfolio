@@ -1,16 +1,19 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 
-const inter = Inter({ subsets: ["latin"] })
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space",
+})
 
 export const metadata: Metadata = {
-  title: "Your Name | CS Student Portfolio",
-  description: "Professional portfolio of a Computer Science student specializing in AI & Machine Learning",
-    generator: 'v0.dev'
+  title: "Edward Ofosu Mensah",
+  description:
+    "CS student at Ashesi University, Ghana. Full-stack developer. MasterCard Foundation Scholar.",
 }
 
 export default function RootLayout({
@@ -20,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${spaceGrotesk.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

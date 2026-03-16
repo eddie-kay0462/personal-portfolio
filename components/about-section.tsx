@@ -1,112 +1,115 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Download, Brain, Users, Clock, View } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
 export default function AboutSection() {
   return (
     <div className="container mx-auto px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-12"
-      >
-        <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">About Me</h2>
-        <div className="mt-4 h-1 w-20 bg-slate-500 mx-auto"></div>
-      </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* Left — Text */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="space-y-6"
+          transition={{ duration: 0.5 }}
+          className="space-y-8"
         >
-          <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">My Journey</h3>
-          <div className="space-y-4 text-slate-600 dark:text-slate-400">
-            <p>
-              I'm a passionate Computer Science student currently pursuing my degree at Ashesi University. My academic
-              journey has been focused on developing a strong foundation in software engineering principles, algorithms,
-              and artificial intelligence.
-            </p>
-            <p>
-              Throughout my studies, I've developed a particular interest in machine learning and its applications in
-              solving real-world problems. I enjoy the challenge of working with complex datasets and building models
-              that can extract meaningful insights.
-            </p>
-            <p>
-              When I'm not coding, you can find me participating in hackathons, contributing to open-source projects, grinding leetcode or
-              exploring the latest developments in technology through online courses and technical blogs.
-            </p>
-          </div>
           <div>
-            <Button className="mt-4" variant="outline" asChild>
-              <a
-                href="https://drive.google.com/file/d/1CHq0XHwTlAW1b0VDTy3HvtLPRIl_uQ0R/view?usp=sharing"
-                download="Edward_Mensah_Resume.pdf"
-                className="flex items-center"
-                target="_blank"
-              >
-                <View className="mr-2 h-4 w-4" /> View Resume
-              </a>
-            </Button>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="space-y-6"
-        >
-          <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">Key Strengths</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card>
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <Brain className="h-10 w-10 text-slate-500 mb-4" />
-                <h4 className="text-lg font-medium mb-2">Problem Solving</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
-                  I approach complex problems with analytical thinking and creative solutions.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <Users className="h-10 w-10 text-slate-500 mb-4" />
-                <h4 className="text-lg font-medium mb-2">Teamwork</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
-                  I thrive in collaborative environments and enjoy working with diverse teams.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="md:col-span-2">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <Clock className="h-10 w-10 text-slate-500 mb-4" />
-                <h4 className="text-lg font-medium mb-2">Time Management</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
-                  I efficiently prioritize tasks and meet deadlines while maintaining high-quality work.
-                </p>
-              </CardContent>
-            </Card>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">About</h2>
+            <div className="mt-3 h-px w-12 bg-amber-400" />
           </div>
 
-          <div className="bg-slate-100 dark:bg-slate-800 p-6 rounded-lg">
-            <h4 className="text-lg font-medium mb-2 text-slate-900 dark:text-white">Career Aspirations</h4>
-            <p className="text-slate-600 dark:text-slate-400">
-              My goal is to become a skilled software engineer specializing in AI applications, contributing to
-              innovative projects that make a positive impact on society. I'm particularly interested in machine learning and hope to work with forward-thinking companies that value innovation and continuous
-              learning.
+          <div className="space-y-5 text-muted-foreground text-[1.05rem] leading-relaxed">
+            <p>
+              I'm a third-year Computer Science student at{" "}
+              <span className="text-foreground font-medium">Ashesi University</span> in Ghana,
+              graduating May 2026 with a 3.50 GPA. Ashesi is a liberal arts university that trains
+              engineers to think independently — and that's shaped how I approach every problem I work on.
+            </p>
+            <p>
+              I build real products. A career platform now used by students across campus.
+              A machine learning model that predicts football player ratings within a 5% margin.
+              A peer-to-peer marketplace that got to the finals of a Google hackathon in the UK.
+            </p>
+            <p>
+              I've interned at a London-based consulting firm, led a developer community of 100+ students,
+              and spent time with Harvard MBA students analyzing startup compensation structures.
+              I'm a MasterCard Foundation Scholar and have been on the Dean's List every year.
+            </p>
+            <p>
+              When I'm not at a keyboard, I'm watching football, planning events, or thinking about
+              what technology can do for Ghana and the continent.
             </p>
           </div>
+
+          {/* Simple identity row */}
+          <div className="grid grid-cols-2 gap-6 pt-4 border-t border-border">
+            {[
+              { label: "Nationality", value: "Ghanaian 🇬🇭" },
+              { label: "Location", value: "Berekuso, Eastern Region" },
+              { label: "Email", value: "edofosu2022@gmail.com" },
+              { label: "LinkedIn", value: "edward-ofosu-mensah-1", href: "https://www.linkedin.com/in/edward-ofosu-mensah-1" },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{item.label}</p>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-foreground hover:text-amber-500 transition-colors flex items-center gap-1"
+                  >
+                    {item.value} <ArrowUpRight className="h-3 w-3" />
+                  </a>
+                ) : (
+                  <p className="text-sm font-medium text-foreground">{item.value}</p>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <a
+            href="https://drive.google.com/file/d/1CHq0XHwTlAW1b0VDTy3HvtLPRIl_uQ0R/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-foreground border border-border px-4 py-2.5 rounded-sm hover:border-foreground transition-colors"
+          >
+            View full CV <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
         </motion.div>
+
+        {/* Right — CV Preview (live Google Drive embed) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="relative"
+        >
+          <div className="absolute -top-2 -left-2 w-16 h-1 bg-amber-400" />
+          <div className="border border-border rounded-sm overflow-hidden">
+            <iframe
+              src="https://drive.google.com/file/d/1CHq0XHwTlAW1b0VDTy3HvtLPRIl_uQ0R/preview"
+              className="w-full"
+              style={{ height: "700px" }}
+              allow="autoplay"
+              title="Edward Ofosu Mensah — CV"
+            />
+          </div>
+          <div className="mt-3 flex justify-end">
+            <a
+              href="https://drive.google.com/file/d/1CHq0XHwTlAW1b0VDTy3HvtLPRIl_uQ0R/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+            >
+              Open in Google Drive <ArrowUpRight className="h-3 w-3" />
+            </a>
+          </div>
+        </motion.div>
+
       </div>
     </div>
   )

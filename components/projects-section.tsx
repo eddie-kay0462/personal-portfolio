@@ -1,79 +1,62 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Github, ExternalLink } from "lucide-react"
-import Link from "next/link"
+import { ArrowUpRight, Github } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
-// Sample project data - you would replace this with your actual projects
-const projectsData = [
+const projects = [
   {
-    id: 1,
-    title: "CSOFT- Career Services on Your Fingertips",
+    number: "01",
+    title: "CSOFT",
+    subtitle: "Career Services on Your Fingertips",
     description:
-      "An all-in-one platform that integrates career development, internship request handling, and attendance tracking for college career services",
+      "A platform that digitizes career management for university students — internship requests, attendance, career resources, all in one place. Student usage went up 40% in the first two weeks after launch. It's live and being used by real people on campus.",
+    tags: ["Next.js", "Supabase", "Tailwind CSS", "PostgreSQL"],
     image: "/CSOFT.png",
-    tags: ["Next.js", "Tailwind CSS", "Supabase", "Lucide-React"],
-    category: "Web Development",
     github: "https://github.com/eddie-kay0462/CSOFT",
-    demo: "https://demo-link.com/project1",
-    role: "Full Stack Developer",
-    challenges: "Managing the complexity of the project and ensuring it is user-friendly and efficient.",
+    demo: "https://croft.vercel.app/",
+    period: "May 2025",
   },
   {
-    id: 2,
-    title: "Personal Finance Tracker",
+    number: "02",
+    title: "E-School Manager",
+    subtitle: "School Administration Platform",
     description:
-      "A web application that helps users track their expenses, set budgets, and visualize spending patterns.",
-    image: "/placeholder.svg?key=x5qi0",
-    tags: ["React", "Node.js", "MongoDB", "Chart.js"],
-    category: "Web Development",
-    github: "https://github.com/yourusername/project2",
-    demo: "https://demo-link.com/project2",
-    role: "Full Stack Developer",
-    challenges: "Ensuring data security and implementing real-time updates.",
-  },
-  {
-    id: 3,
-    title: "Sorting Algorithm Visualizer",
-    description:
-      "An interactive tool that visualizes various sorting algorithms to help understand their mechanics and efficiency.",
-    image: "/algorithm-visualization.png",
-    tags: ["JavaScript", "HTML5", "CSS3", "Algorithms"],
-    category: "Algorithms",
-    github: "https://github.com/yourusername/project3",
-    demo: "https://demo-link.com/project3",
-    role: "Frontend Developer",
-    challenges: "Creating smooth animations and optimizing performance for complex algorithms.",
-  },
-  {
-    id: 4,
-    title: "Smart Home IoT System",
-    description:
-      "A system that connects various smart home devices and provides a unified interface for control and automation.",
-    image: "/placeholder.svg?key=de7fo",
-    tags: ["Python", "Raspberry Pi", "MQTT", "IoT"],
-    category: "IoT",
-    github: "https://github.com/yourusername/project4",
+      "A full school management system built for Ghanaian schools — handles student records, attendance, grades, and admin workflows. Replaces paper-based processes that most schools still rely on. Built for real clients, used in production.",
+    tags: ["React", "PHP", "MySQL", "Bootstrap"],
+    image: "/placeholder.jpg",
+    github: "https://github.com/eddie-kay0462/E-School-Manager",
     demo: null,
-    role: "IoT Developer",
-    challenges: "Ensuring reliable communication between different devices and implementing secure authentication.",
+    period: "Ongoing",
+  },
+  {
+    number: "03",
+    title: "Football Player Rating Predictor",
+    subtitle: "Machine Learning · Python",
+    description:
+      "Trained a model on player statistics to predict ratings within a 5% margin of error. Built an interactive Streamlit app so anyone can input stats and get a prediction in real time. Simple idea, properly executed.",
+    tags: ["Python", "Scikit-learn", "Pandas", "Streamlit"],
+    image: "/algorithm-visualization.png",
+    github: "https://github.com/eddie-kay0462",
+    demo: null,
+    period: "June 2024",
+  },
+  {
+    number: "04",
+    title: "Campus Marketplace",
+    subtitle: "Google Hackathon Finalist · UK",
+    description:
+      "A marketplace for campus sole trades — students advertising their skills (tutoring, design, laundry, food, whatever) to other students. Built in a hackathon setting and made it to the finals of the Google Developer Student Solutions Hackathon in the UK.",
+    tags: ["React", "Firebase", "Node.js", "Tailwind CSS"],
+    image: "/placeholder.jpg",
+    github: "https://github.com/eddie-kay0462/hvp",
+    demo: null,
+    period: "April 2025",
   },
 ]
 
-// Categories for filtering
-const categories = ["All", "AI", "Web Development", "Algorithms", "IoT"]
-
 export default function ProjectsSection() {
-  const [filter, setFilter] = useState("All")
-
-  const filteredProjects =
-    filter === "All" ? projectsData : projectsData.filter((project) => project.category === filter)
-
   return (
     <div className="container mx-auto px-4">
       <motion.div
@@ -81,88 +64,92 @@ export default function ProjectsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-12"
+        className="mb-14"
       >
-        <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">My Projects</h2>
-        <div className="mt-4 h-1 w-20 bg-slate-500 mx-auto"></div>
-        <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          Here are some of my recent projects that showcase my skills and interests in various areas of computer
-          science.
-        </p>
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground">Projects</h2>
+        <div className="mt-3 h-px w-12 bg-amber-400" />
       </motion.div>
 
-      {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-2 mb-8">
-        {categories.map((category) => (
-          <Button
-            key={category}
-            variant={filter === category ? "default" : "outline"}
-            size="sm"
-            onClick={() => setFilter(category)}
-            className="rounded-full"
-          >
-            {category}
-          </Button>
-        ))}
-      </div>
-
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredProjects.map((project, index) => (
+      <div className="space-y-0">
+        {projects.map((project, i) => (
           <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 20 }}
+            key={project.number}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{ duration: 0.4, delay: i * 0.07 }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-12 border-t border-border group"
           >
-            <Card className="h-full flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="relative h-48 w-full overflow-hidden">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform hover:scale-105"
-                />
-              </div>
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <div className="flex flex-wrap gap-1 mt-2">
+            {/* Left — info */}
+            <div className="flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-baseline gap-4">
+                  <span className="text-xs text-muted-foreground/50 font-mono">{project.number}</span>
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground leading-tight">{project.title}</h3>
+                    <p className="text-sm text-amber-500 font-medium mt-0.5">{project.subtitle}</p>
+                  </div>
+                </div>
+
+                <p className="text-muted-foreground leading-relaxed text-sm max-w-lg">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="text-xs">
+                    <span
+                      key={tag}
+                      className="text-xs text-muted-foreground border border-border px-2.5 py-1 rounded-sm"
+                    >
                       {tag}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-slate-600 dark:text-slate-400 mb-4">{project.description}</p>
-                <div className="space-y-2 text-sm">
-                  <p>
-                    <span className="font-medium">Role:</span> {project.role}
-                  </p>
-                  <p>
-                    <span className="font-medium">Challenges:</span> {project.challenges}
-                  </p>
-                </div>
-              </CardContent>
-              <CardFooter className="flex justify-between">
-                <Link href={project.github} target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="sm">
-                    <Github className="mr-2 h-4 w-4" /> Code
-                  </Button>
+              </div>
+
+              <div className="flex items-center gap-4 text-sm">
+                <Link
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Github className="h-4 w-4" /> GitHub
                 </Link>
                 {project.demo && (
-                  <Link href={project.demo} target="_blank" rel="noopener noreferrer">
-                    <Button size="sm">
-                      <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
-                    </Button>
+                  <Link
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 font-semibold text-foreground hover:text-amber-500 transition-colors"
+                  >
                   </Link>
                 )}
-              </CardFooter>
-            </Card>
+                <span className="ml-auto text-xs text-muted-foreground/50">{project.period}</span>
+              </div>
+            </div>
+
+            {/* Right — image */}
+            <div className="overflow-hidden rounded-sm border border-border bg-muted/30">
+              <div className="relative h-56 lg:h-full min-h-[200px]">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
+            </div>
           </motion.div>
         ))}
+        <div className="border-t border-border pt-8">
+          <Link
+            href="https://github.com/eddie-kay0462"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
+            See everything on GitHub <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
     </div>
   )

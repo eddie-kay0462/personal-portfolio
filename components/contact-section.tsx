@@ -1,26 +1,18 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react"
-import { useToast } from "@/hooks/use-toast"
+import { ArrowUpRight, CheckCircle2 } from "lucide-react"
 
 export default function ContactSection() {
-  const { toast } = useToast()
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -30,183 +22,147 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    })
-
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    })
+    await new Promise((resolve) => setTimeout(resolve, 1200))
+    setSubmitted(true)
     setIsSubmitting(false)
+    setFormData({ name: "", email: "", message: "" })
+    setTimeout(() => setSubmitted(false), 6000)
   }
 
   return (
     <div className="container mx-auto px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-12"
-      >
-        <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Get In Touch</h2>
-        <div className="mt-4 h-1 w-20 bg-slate-500 mx-auto"></div>
-        <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          Have a question or want to work together? Feel free to reach out to me using the form below or through my
-          social media profiles.
-        </p>
-      </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Left */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="lg:col-span-1 space-y-6"
+          className="space-y-8"
         >
-          <Card>
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">Contact Information</h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <Mail className="h-5 w-5 text-slate-500 mr-3 mt-0.5" />
-                  <div>
-                    <p className="font-medium text-slate-900 dark:text-white">Email</p>
-                    <a
-                      href="mailto:your.email@example.com"
-                      className="text-slate-600 dark:text-slate-400 hover:underline"
-                    >
-                      your.email@example.com
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <Phone className="h-5 w-5 text-slate-500 mr-3 mt-0.5" />
-                  <div>
-                    <p className="font-medium text-slate-900 dark:text-white">Phone</p>
-                    <p className="text-slate-600 dark:text-slate-400">+1 (123) 456-7890</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <MapPin className="h-5 w-5 text-slate-500 mr-3 mt-0.5" />
-                  <div>
-                    <p className="font-medium text-slate-900 dark:text-white">Location</p>
-                    <p className="text-slate-600 dark:text-slate-400">City, State, Country</p>
-                  </div>
-                </div>
-              </div>
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">Get in touch</h2>
+            <div className="mt-3 h-px w-12 bg-amber-400" />
+          </div>
 
-              <div className="mt-8">
-                <h3 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">Connect With Me</h3>
-                <div className="flex space-x-4">
+          <p className="text-muted-foreground text-[1.05rem] leading-relaxed max-w-md">
+            I'm graduating in May 2026 and actively looking for internships and
+            graduate roles in software engineering. If you're building something
+            interesting, I'd love to hear about it.
+          </p>
+
+          {/* Direct contacts */}
+          <div className="space-y-5 pt-2">
+            {[
+              { label: "Email", value: "edofosu2022@gmail.com", href: "mailto:edofosu2022@gmail.com" },
+              { label: "Phone", value: "+233 553 987 468", href: "tel:+233553987468" },
+              { label: "LinkedIn", value: "edward-ofosu-mensah-1", href: "https://www.linkedin.com/in/edward-ofosu-mensah-1" },
+              { label: "GitHub", value: "eddie-kay0462", href: "https://github.com/eddie-kay0462" },
+              { label: "Location", value: "Berekuso, Eastern Region · Ghana 🇬🇭", href: null },
+            ].map((item) => (
+              <div key={item.label} className="flex items-start gap-6 border-t border-border pt-5">
+                <p className="text-xs text-muted-foreground uppercase tracking-wider w-20 flex-shrink-0 pt-0.5">
+                  {item.label}
+                </p>
+                {item.href ? (
                   <a
-                    href="https://github.com/yourusername"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-slate-100 dark:bg-slate-800 p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="text-sm font-medium text-foreground hover:text-amber-500 transition-colors flex items-center gap-1"
                   >
-                    <Github className="h-5 w-5 text-slate-700 dark:text-slate-300" />
-                    <span className="sr-only">GitHub</span>
+                    {item.value}
+                    {item.href.startsWith("http") && <ArrowUpRight className="h-3 w-3" />}
                   </a>
-                  <a
-                    href="https://linkedin.com/in/yourusername"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-slate-100 dark:bg-slate-800 p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-                  >
-                    <Linkedin className="h-5 w-5 text-slate-700 dark:text-slate-300" />
-                    <span className="sr-only">LinkedIn</span>
-                  </a>
-                  <a
-                    href="https://twitter.com/yourusername"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-slate-100 dark:bg-slate-800 p-3 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-                  >
-                    <Twitter className="h-5 w-5 text-slate-700 dark:text-slate-300" />
-                    <span className="sr-only">Twitter</span>
-                  </a>
-                </div>
+                ) : (
+                  <p className="text-sm font-medium text-foreground">{item.value}</p>
+                )}
               </div>
-            </CardContent>
-          </Card>
+            ))}
+            <div className="border-t border-border" />
+          </div>
         </motion.div>
 
+        {/* Right — Form */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="lg:col-span-2"
+          transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <Card>
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-6 text-slate-900 dark:text-white">Send Me a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      placeholder="Your Name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    placeholder="What is this regarding?"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Your message here..."
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <Button type="submit" className="w-full" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          {submitted ? (
+            <div className="flex flex-col items-start justify-center h-full py-16 space-y-4">
+              <CheckCircle2 className="h-10 w-10 text-amber-500" />
+              <div>
+                <h3 className="text-xl font-bold text-foreground">Message received.</h3>
+                <p className="text-muted-foreground text-sm mt-1">I'll reply within a day or two.</p>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="name" className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Name
+                </Label>
+                <Input
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="rounded-sm border-border bg-transparent focus:border-foreground transition-colors"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="rounded-sm border-border bg-transparent focus:border-foreground transition-colors"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message" className="text-xs uppercase tracking-wider text-muted-foreground">
+                  Message
+                </Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  placeholder="What's on your mind?"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="rounded-sm border-border bg-transparent focus:border-foreground transition-colors resize-none"
+                />
+              </div>
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full rounded-sm bg-foreground text-background hover:bg-foreground/90 font-semibold py-6"
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center gap-2">
+                    <span className="w-4 h-4 border-2 border-background/30 border-t-background rounded-full animate-spin" />
+                    Sending...
+                  </span>
+                ) : (
+                  "Send message"
+                )}
+              </Button>
+            </form>
+          )}
         </motion.div>
+
       </div>
     </div>
   )
