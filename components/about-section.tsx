@@ -23,20 +23,20 @@ export default function AboutSection() {
 
           <div className="space-y-5 text-muted-foreground text-[1.05rem] leading-relaxed">
             <p>
-              I'm a third-year Computer Science student at{" "}
+              I'm a final-year Computer Science student at{" "}
               <span className="text-foreground font-medium">Ashesi University</span> in Ghana,
-              graduating May 2026 with a 3.50 GPA. Ashesi is a liberal arts university that trains
+              graduating June 2026 with a 3.60 GPA. Ashesi is a liberal arts university that trains
               engineers to think independently — and that's shaped how I approach every problem I work on.
             </p>
             <p>
               I build real products. A career platform now used by students across campus.
               A machine learning model that predicts football player ratings within a 5% margin.
-              A peer-to-peer marketplace that got to the finals of a Google hackathon in the UK.
+              A peer-to-peer marketplace that got to the finals of a hackathon in the UK (NorthEastern University + Ashesi Center for Entrepreneurship).
             </p>
             <p>
               I've interned at a London-based consulting firm, led a developer community of 100+ students,
               and spent time with Harvard MBA students analyzing startup compensation structures.
-              I'm a MasterCard Foundation Scholar and have been on the Dean's List every year.
+              I'm a MasterCard Foundation Scholar and have been on the Dean's List every year (2023-2026).
             </p>
             <p>
               When I'm not at a keyboard, I'm watching football, planning events, or thinking about
@@ -49,8 +49,8 @@ export default function AboutSection() {
             {[
               { label: "Nationality", value: "Ghanaian 🇬🇭" },
               { label: "Location", value: "Berekuso, Eastern Region" },
-              { label: "Email", value: "edofosu2022@gmail.com" },
-              { label: "LinkedIn", value: "edward-ofosu-mensah-1", href: "https://www.linkedin.com/in/edward-ofosu-mensah-1" },
+              { label: "Email", value: "eddiemens0462@gmail.com" },
+              { label: "LinkedIn", value: "edward-ofosu-mensah", href: "https://www.linkedin.com/in/edward-ofosu-mensah" },
             ].map((item) => (
               <div key={item.label}>
                 <p className="text-xs uppercase tracking-wider text-muted-foreground mb-1">{item.label}</p>

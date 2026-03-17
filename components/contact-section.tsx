@@ -55,9 +55,9 @@ export default function ContactSection() {
           {/* Direct contacts */}
           <div className="space-y-5 pt-2">
             {[
-              { label: "Email", value: "edofosu2022@gmail.com", href: "mailto:edofosu2022@gmail.com" },
+              { label: "Email", value: "eddiemens0462@gmail.com", href: "mailto:eddiemens0462@gmail.com" },
               { label: "Phone", value: "+233 553 987 468", href: "tel:+233553987468" },
-              { label: "LinkedIn", value: "edward-ofosu-mensah-1", href: "https://www.linkedin.com/in/edward-ofosu-mensah-1" },
+              { label: "LinkedIn", value: "edward-ofosu-mensah", href: "https://www.linkedin.com/in/edward-ofosu-mensah" },
               { label: "GitHub", value: "eddie-kay0462", href: "https://github.com/eddie-kay0462" },
               { label: "Location", value: "Berekuso, Eastern Region · Ghana 🇬🇭", href: null },
             ].map((item) => (

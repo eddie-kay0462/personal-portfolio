@@ -46,12 +46,12 @@ export default function Home() {
                 <Github className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href="https://www.linkedin.com/in/edward-ofosu-mensah-1" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.linkedin.com/in/edward-ofosu-mensah" target="_blank" rel="noopener noreferrer">
               <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
                 <Linkedin className="h-4 w-4" />
               </Button>
             </Link>
-            <Link href="mailto:edofosu2022@gmail.com">
+            <Link href="mailto:eddiemens0462@gmail.com">
               <Button variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
                 <Mail className="h-4 w-4" />
               </Button>
