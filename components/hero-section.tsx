@@ -117,7 +117,7 @@ export default function HeroSection() {
           <p>MasterCard Foundation Scholar · Google Developer Student Club Lead</p>
           <div className="flex items-center gap-5">
             <a
-              href="https://www.linkedin.com/in/edward-ofosu-mensah"
+              href="https://www.linkedin.com/in/edward-ofosu-mensah-1"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors flex items-center gap-1"
@@ -133,10 +133,10 @@ export default function HeroSection() {
               GitHub <ArrowUpRight className="h-3 w-3" />
             </a>
             <a
-              href="mailto:eddiemens0462@gmail.com"
+              href="mailto:edofosu2022@gmail.com"
               className="hover:text-white transition-colors"
             >
-              eddiemens0462@gmail.com
+              edofosu2022@gmail.com
             </a>
           </div>
         </div>
