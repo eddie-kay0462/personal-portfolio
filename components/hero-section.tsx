@@ -70,7 +70,7 @@ export default function HeroSection() {
               </div>
               <div>
                 <p className="text-zinc-500 text-xs uppercase tracking-wider mb-1">GPA</p>
-                <p className="text-white text-sm font-medium">3.60 / 4.00 · Dean's List</p>
+                <p className="text-white text-sm font-medium">3.56 / 4.00 · Dean's List</p>
               </div>
               <div>
                 <p className="text-zinc-500 text-xs uppercase tracking-wider mb-1">Major</p>

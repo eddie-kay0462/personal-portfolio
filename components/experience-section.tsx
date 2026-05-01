@@ -41,7 +41,7 @@ const experiences = [
     org: "Ashesi University",
     location: "Berekuso, Ghana",
     description:
-      "GPA 3.50/4.00. Dean's List every year (2023–2026). MasterCard Foundation Scholar. Coursework spans algorithms, software engineering, AI, and systems.",
+      "GPA 3.56/4.00. Dean's List every year (2023–2026). MasterCard Foundation Scholar. Coursework spans algorithms, software engineering, AI, and systems.",
   },
 ]
 

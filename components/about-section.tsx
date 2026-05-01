@@ -25,7 +25,7 @@ export default function AboutSection() {
             <p>
               I'm a final-year Computer Science student at{" "}
               <span className="text-foreground font-medium">Ashesi University</span> in Ghana,
-              graduating June 2026 with a 3.60 GPA. Ashesi is a liberal arts university that trains
+              graduating June 2026 with a 3.56 GPA. Ashesi is a liberal arts university that trains
               engineers to think independently — and that's shaped how I approach every problem I work on.
             </p>
             <p>
